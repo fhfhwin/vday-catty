@@ -91,11 +91,16 @@ function handleNoClick() {
     const msgIndex = Math.min(noClickCount, noMessages.length - 1)
     noBtn.textContent = noMessages[msgIndex]
 
-    // Grow the Yes button bigger each time
+    // Grow the Yes button bigger each time (capped for mobile)
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
-    yesBtn.style.fontSize = `${currentSize * 1.35}px`
-    const padY = Math.min(18 + noClickCount * 5, 60)
-    const padX = Math.min(45 + noClickCount * 10, 120)
+    const isMobile = window.innerWidth <= 600
+    const maxFontSize = isMobile ? 32 : 60
+    const growRate = isMobile ? 1.2 : 1.35
+    yesBtn.style.fontSize = `${Math.min(currentSize * growRate, maxFontSize)}px`
+    const maxPadY = isMobile ? 30 : 60
+    const maxPadX = isMobile ? 50 : 120
+    const padY = Math.min(18 + noClickCount * 4, maxPadY)
+    const padX = Math.min(30 + noClickCount * 8, maxPadX)
     yesBtn.style.padding = `${padY}px ${padX}px`
 
     // Shrink No button to contrast
