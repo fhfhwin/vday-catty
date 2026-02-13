@@ -6,9 +6,17 @@ window.addEventListener('load', () => {
     // Autoplay music (works since user clicked Yes to get here)
     const music = document.getElementById('bg-music')
     music.volume = 0.3
-    music.play().catch(() => {})
+    music.play().catch(() => { })
     musicPlaying = true
     document.getElementById('music-toggle').textContent = '🔊'
+
+    // Add click listeners to all postcard images
+    document.querySelectorAll('.postcard').forEach(card => {
+        card.addEventListener('click', () => {
+            const img = card.querySelector('img')
+            if (img) openLightbox(img.src)
+        })
+    })
 })
 
 function launchConfetti() {
@@ -47,6 +55,42 @@ function launchConfetti() {
             colors
         })
     }, 300)
+}
+
+// Lightbox functions
+function openLightbox(src) {
+    const overlay = document.getElementById('lightbox')
+    const lightboxImg = document.getElementById('lightbox-img')
+    lightboxImg.src = src
+    overlay.classList.add('active')
+
+    // Mini confetti burst at center 🎉
+    const colors = ['#ff69b4', '#ff1493', '#ffb3c1', '#ffdf00', '#fff']
+    confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { x: 0.5, y: 0.5 },
+        colors
+    })
+    // Side pops
+    confetti({
+        particleCount: 30,
+        angle: 60,
+        spread: 50,
+        origin: { x: 0.15, y: 0.6 },
+        colors
+    })
+    confetti({
+        particleCount: 30,
+        angle: 120,
+        spread: 50,
+        origin: { x: 0.85, y: 0.6 },
+        colors
+    })
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active')
 }
 
 function toggleMusic() {

@@ -131,14 +131,18 @@ function enableRunaway() {
 }
 
 function runAway() {
-    const margin = 20
+    const padding = 30
     const btnW = noBtn.offsetWidth
     const btnH = noBtn.offsetHeight
-    const maxX = window.innerWidth - btnW - margin
-    const maxY = window.innerHeight - btnH - margin
 
-    const randomX = Math.random() * maxX + margin / 2
-    const randomY = Math.random() * maxY + margin / 2
+    // Keep the button safely within the viewport
+    const minX = padding
+    const minY = padding
+    const maxX = Math.max(padding, window.innerWidth - btnW - padding)
+    const maxY = Math.max(padding, window.innerHeight - btnH - padding)
+
+    const randomX = Math.random() * (maxX - minX) + minX
+    const randomY = Math.random() * (maxY - minY) + minY
 
     noBtn.style.position = 'fixed'
     noBtn.style.left = `${randomX}px`
