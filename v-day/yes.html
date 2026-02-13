@@ -22,20 +22,33 @@
         </div>
 
         <p class="yes-message">ทำให้ฉันมีความสุขที่สุดเลย! 💕</p>
-    </div>
 
-    <!-- Heart-shaped photos floating around the edges -->
-    <div class="heart-photo heart-pos-1">
-        <img src="stable_picture/LINE_ALBUM_Special Gift is you._260213_1.jpg" alt="ความทรงจำ 1">
-    </div>
-    <div class="heart-photo heart-pos-2">
-        <img src="stable_picture/LINE_ALBUM_ทริปวิ่งเทล_260213_1.jpg" alt="ความทรงจำ 2">
-    </div>
-    <div class="heart-photo heart-pos-3">
-        <img src="stable_picture/LINE_ALBUM_สระบุรี ATV ซู่ซ่า + งานแต่ง อยู่ล่าง_260213_1.jpg" alt="ความทรงจำ 3">
-    </div>
-    <div class="heart-photo heart-pos-4">
-        <img src="stable_picture/LINE_ALBUM_สระบุรี ATV ซู่ซ่า + งานแต่ง อยู่ล่าง_260213_2.jpg" alt="ความทรงจำ 4">
+        <!-- SVG heart clip path definition -->
+        <svg width="0" height="0" style="position:absolute">
+            <defs>
+                <clipPath id="heart-clip" clipPathUnits="objectBoundingBox">
+                    <path
+                        d="M0.5,0.92 C0.5,0.92 0.05,0.62 0.05,0.35 C0.05,0.15 0.18,0.02 0.35,0.08 C0.42,0.11 0.47,0.18 0.5,0.25 C0.53,0.18 0.58,0.11 0.65,0.08 C0.82,0.02 0.95,0.15 0.95,0.35 C0.95,0.62 0.5,0.92 0.5,0.92Z" />
+                </clipPath>
+            </defs>
+        </svg>
+
+        <div class="heart-gallery">
+            <div class="heart-frame heart-frame-1">
+                <img src="stable_picture/LINE_ALBUM_Special Gift is you._260213_1.jpg" alt="ความทรงจำ 1">
+            </div>
+            <div class="heart-frame heart-frame-2">
+                <img src="stable_picture/LINE_ALBUM_ทริปวิ่งเทล_260213_1.jpg" alt="ความทรงจำ 2">
+            </div>
+            <div class="heart-frame heart-frame-3">
+                <img src="stable_picture/LINE_ALBUM_สระบุรี ATV ซู่ซ่า + งานแต่ง อยู่ล่าง_260213_1.jpg"
+                    alt="ความทรงจำ 3">
+            </div>
+            <div class="heart-frame heart-frame-4">
+                <img src="stable_picture/LINE_ALBUM_สระบุรี ATV ซู่ซ่า + งานแต่ง อยู่ล่าง_260213_2.jpg"
+                    alt="ความทรงจำ 4">
+            </div>
+        </div>
     </div>
 
     <audio id="bg-music" loop>
