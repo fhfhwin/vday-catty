@@ -9,6 +9,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <style>
+        /* Override body overflow for this page */
+        body {
+            overflow-y: auto !important;
+        }
+
+        /* Postcard gallery - self-contained styles */
+        .postcard-gallery {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 14px !important;
+            margin-top: 24px !important;
+            flex-wrap: wrap !important;
+        }
+
+        .postcard {
+            background: white !important;
+            padding: 5px !important;
+            border-radius: 10px !important;
+            box-shadow: 0 3px 12px rgba(214, 51, 132, 0.25) !important;
+            cursor: pointer;
+            overflow: hidden !important;
+            width: 90px !important;
+            max-width: 90px !important;
+            flex-shrink: 0 !important;
+            display: inline-block !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .postcard img {
+            width: 80px !important;
+            height: 80px !important;
+            max-width: 80px !important;
+            max-height: 80px !important;
+            object-fit: cover !important;
+            border-radius: 7px !important;
+            display: block !important;
+        }
+
+        .pc-heart {
+            display: block;
+            text-align: center;
+            font-size: 0.65rem;
+            line-height: 1;
+            padding: 3px 0 2px;
+        }
+
+        .pc-1 {
+            transform: rotate(-5deg);
+        }
+
+        .pc-2 {
+            transform: rotate(3deg);
+        }
+
+        .pc-3 {
+            transform: rotate(-2deg);
+        }
+
+        .pc-4 {
+            transform: rotate(4deg);
+        }
+
+        .postcard:hover {
+            transform: scale(1.2) !important;
+            box-shadow: 0 6px 20px rgba(214, 51, 132, 0.5) !important;
+            animation: pcWiggle 0.5s ease !important;
+        }
+
+        @keyframes pcWiggle {
+            0% {
+                transform: scale(1.2) rotate(0deg);
+            }
+
+            25% {
+                transform: scale(1.2) rotate(6deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(-6deg);
+            }
+
+            75% {
+                transform: scale(1.2) rotate(4deg);
+            }
+
+            100% {
+                transform: scale(1.2) rotate(0deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -25,21 +117,23 @@
 
         <div class="postcard-gallery">
             <div class="postcard pc-1">
-                <img src="stable_picture/LINE_ALBUM_Special Gift is you._260213_1.jpg" alt="ความทรงจำ 1">
+                <img src="stable_picture/LINE_ALBUM_Special Gift is you._260213_1.jpg" alt="ความทรงจำ 1"
+                    style="width:80px;height:80px;object-fit:cover;">
                 <span class="pc-heart">💕</span>
             </div>
             <div class="postcard pc-2">
-                <img src="stable_picture/LINE_ALBUM_ทริปวิ่งเทล_260213_1.jpg" alt="ความทรงจำ 2">
+                <img src="stable_picture/LINE_ALBUM_ทริปวิ่งเทล_260213_1.jpg" alt="ความทรงจำ 2"
+                    style="width:80px;height:80px;object-fit:cover;">
                 <span class="pc-heart">💗</span>
             </div>
             <div class="postcard pc-3">
                 <img src="stable_picture/LINE_ALBUM_สระบุรี ATV ซู่ซ่า + งานแต่ง อยู่ล่าง_260213_1.jpg"
-                    alt="ความทรงจำ 3">
+                    alt="ความทรงจำ 3" style="width:80px;height:80px;object-fit:cover;">
                 <span class="pc-heart">💖</span>
             </div>
             <div class="postcard pc-4">
                 <img src="stable_picture/LINE_ALBUM_สระบุรี ATV ซู่ซ่า + งานแต่ง อยู่ล่าง_260213_2.jpg"
-                    alt="ความทรงจำ 4">
+                    alt="ความทรงจำ 4" style="width:80px;height:80px;object-fit:cover;">
                 <span class="pc-heart">💝</span>
             </div>
         </div>
