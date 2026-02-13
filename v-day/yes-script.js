@@ -109,7 +109,7 @@ function toggleMusic() {
     }
 }
 
-// GIF-like slideshow — smooth crossfade
+// GIF-like slideshow — smooth crossfade with preload
 function startSlideshow() {
     const frame = document.getElementById('gif-frame')
     if (!frame) return
@@ -117,17 +117,47 @@ function startSlideshow() {
     const images = frame.querySelectorAll('img')
     if (images.length === 0) return
 
+    // Preload all images into browser cache first
+    let loaded = 0
+    const srcs = Array.from(images).map(img => img.src)
+
+    srcs.forEach(src => {
+        const preImg = new Image()
+        preImg.onload = preImg.onerror = () => {
+            loaded++
+            if (loaded >= srcs.length) {
+                // All images loaded — start the animation
+                runSlideshow(images)
+            }
+        }
+        preImg.src = src
+    })
+}
+
+function runSlideshow(images) {
     let current = 0
+    let zIndex = 1
 
     setInterval(() => {
         const next = (current + 1) % images.length
-        // Show next image on top (crossfade overlap)
+
+        // Stack next image on top with higher z-index
+        zIndex++
+        images[next].style.zIndex = zIndex
         images[next].classList.add('active')
-        // Hide previous image after transition completes
+
+        // Remove old image after crossfade finishes
         const prev = current
         setTimeout(() => {
             images[prev].classList.remove('active')
-        }, 350)
+            images[prev].style.zIndex = 0
+        }, 400)
+
         current = next
+
+        // Reset z-index every full cycle to prevent overflow
+        if (current === 0) {
+            zIndex = 1
+        }
     }, 500)
 }
