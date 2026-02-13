@@ -172,6 +172,56 @@
                 opacity: 1;
             }
         }
+
+        /* GIF slideshow */
+        .gif-slideshow {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gif-slideshow-label {
+            font-size: 0.9rem;
+            color: #d63384;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .gif-frame {
+            width: 260px;
+            height: 260px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: white;
+            padding: 6px;
+            box-shadow: 0 6px 24px rgba(214, 51, 132, 0.25);
+            position: relative;
+        }
+
+        .gif-frame img {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            object-fit: cover;
+            border-radius: 13px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .gif-frame img.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .gif-frame {
+                width: 220px;
+                height: 220px;
+            }
+        }
     </style>
 </head>
 
@@ -207,6 +257,30 @@
                 <img src="stable_picture/LINE_ALBUM_สระบุรี ATV ซู่ซ่า + งานแต่ง อยู่ล่าง_260213_2.jpg"
                     alt="ความทรงจำ 4" style="width:80px;height:80px;object-fit:cover;">
                 <span class="pc-heart">💝</span>
+            </div>
+        </div>
+
+        <!-- GIF slideshow from sequence images -->
+        <div class="gif-slideshow">
+            <p class="gif-slideshow-label">📸 ช่วงเวลาดีๆ ของเรา</p>
+            <div class="gif-frame" id="gif-frame">
+                <img src="gif/g1.jpg" class="active" alt="moment">
+                <img src="gif/g2.jpg" alt="moment">
+                <img src="gif/g3.jpg" alt="moment">
+                <img src="gif/g4.jpg" alt="moment">
+                <img src="gif/g5.jpg" alt="moment">
+                <img src="gif/g6.jpg" alt="moment">
+                <img src="gif/g7.jpg" alt="moment">
+                <img src="gif/g8.jpg" alt="moment">
+                <img src="gif/g9.jpg" alt="moment">
+                <img src="gif/g10.jpg" alt="moment">
+                <img src="gif/g11.jpg" alt="moment">
+                <img src="gif/g12.jpg" alt="moment">
+                <img src="gif/g13.jpg" alt="moment">
+                <img src="gif/g14.jpg" alt="moment">
+                <img src="gif/g15.jpg" alt="moment">
+                <img src="gif/g16.jpg" alt="moment">
+                <img src="gif/g17.jpg" alt="moment">
             </div>
         </div>
     </div>

@@ -17,6 +17,9 @@ window.addEventListener('load', () => {
             if (img) openLightbox(img.src)
         })
     })
+
+    // Start GIF slideshow
+    startSlideshow()
 })
 
 function launchConfetti() {
@@ -104,4 +107,21 @@ function toggleMusic() {
         musicPlaying = true
         document.getElementById('music-toggle').textContent = '🔊'
     }
+}
+
+// GIF-like slideshow — crossfade images every 500ms
+function startSlideshow() {
+    const frame = document.getElementById('gif-frame')
+    if (!frame) return
+
+    const images = frame.querySelectorAll('img')
+    if (images.length === 0) return
+
+    let current = 0
+
+    setInterval(() => {
+        images[current].classList.remove('active')
+        current = (current + 1) % images.length
+        images[current].classList.add('active')
+    }, 500)
 }
