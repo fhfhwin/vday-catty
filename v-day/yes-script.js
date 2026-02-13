@@ -109,7 +109,7 @@ function toggleMusic() {
     }
 }
 
-// GIF-like slideshow — crossfade images every 500ms
+// GIF-like slideshow — smooth crossfade
 function startSlideshow() {
     const frame = document.getElementById('gif-frame')
     if (!frame) return
@@ -120,8 +120,14 @@ function startSlideshow() {
     let current = 0
 
     setInterval(() => {
-        images[current].classList.remove('active')
-        current = (current + 1) % images.length
-        images[current].classList.add('active')
+        const next = (current + 1) % images.length
+        // Show next image on top (crossfade overlap)
+        images[next].classList.add('active')
+        // Hide previous image after transition completes
+        const prev = current
+        setTimeout(() => {
+            images[prev].classList.remove('active')
+        }, 350)
+        current = next
     }, 500)
 }
